@@ -1,0 +1,52 @@
+# these are OSU IPPC/PPQ CPHST DDRP_B1 params and values for 
+# APH, Aphalara itadori, knotweed psyllid model in Degs Celsius (C)
+# Last updated in August 2020 for DDRP v2 (cohorts)
+# southern biotype
+  fullname   <- "Aphalara itadori"
+  pestof     <- "biological control of Japanese and Giant knotweed"
+  stgorder   <- c("OA","E","L","P", "A") # stgorder changed to 1, 2, 3, 4, 5 in DDRP v2; 
+  # P for APH represents late larval stage when photosensitive
+  owstage    <- "OA"   # OW pupae in the soil; no true diapause   
+  eggLDT     <- 6.9   
+  eggUDT     <- 30     # Unknown, only tested in lab up to 30
+  larvaeLDT  <- 6.9     # same as egg stage
+  larvaeUDT  <- 30     # nominal upper dev. threshold
+  pupaeLDT   <- 6.9   # same as egg stage
+  pupaeUDT   <- 30    
+  adultLDT   <- 6.9   
+  adultUDT   <- 30     
+  eggDD      <- 416 # Egg (147) and Nymph 1-4 (269) all combined    
+  larvaeDD   <- 132 # Nymph 5th instar
+  pupDD      <- 70 # time to complete pre-oviposition and pre-diapause period
+  OWadultDD  <- 306   
+  adultDD    <- 50     # time until peak oviposition
+  calctype   <-"triangle" # similar to sine method upon which model was built
+ 
+ # Pest Event Maps (PEMs) must be turned on as a runtime param for these to get used:
+  PEMnumgens       <- 2     # create PEMS for up to this many generations (max is 4)
+  eggEventDD       <- 145     # PEMs for egg stage is end of stage
+  eggEventLabel    <- "egg hatch" # Label for PEM egg stage
+  larvaeEventDD    <- 5 # PEMs for late larvae stage 
+  larvaeEventLabel <- "last instar nymph photosensitive" # Label for PEM larvae stage
+  pupaeEventDD     <- 5  # PEMs for end pupal stage 
+  pupaeEventLabel  <- "adults emerge (pre-oviposition)" # Label for PEM pupal stage
+  adultEventDD     <- 49  # PEMs for adult stage (1st ovip.) 
+  adultEventLabel  <- "peak egg laying" # Label for PEM adult stage
+  OWEventP         <- 0.7 # PEMs is (70%) into stage
+  OWEventLabel     <- "Adult emerges (pre-oviposition)" 
+ 
+# OW stage emergence parameters (DDRP v2 only)
+  distro_mean <- 220
+  distro_var <- 2500
+  xdist1 <- 150
+  xdist2 <- 290
+  length_out <- 1000
+  distro_shape <- "normal" 
+#
+# Diapause parameters
+# TODO: single CP option
+do_photo      <- 1   # 0 means don't
+photo_sens    <- 3   # late larvae (pupa here for convenience) stage sensitive
+diapstage     <- 4   # stage to complete to survive winter (and complete generation)
+crit_photo_mean   <- 15  
+crit_photo_sd   <- 0.25 
