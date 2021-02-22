@@ -10,7 +10,8 @@
 ## Modified by Tyson Wepprich from https://doi.org/10.5281/zenodo.4294801
 ## Barker et al. (2020). DDRP: Real-time phenology and climatic suitability 
 ## modeling of invasive insects. PLOS ONE. https://doi.org/10.1371/journal.pone.0244005
-## This script adds photoperiod-based diapause and phenology mismatches.
+## This script adds photoperiod-based diapause/phenology mismatches and removes
+## other functions not included in this manuscript
 ## ---
 
 
