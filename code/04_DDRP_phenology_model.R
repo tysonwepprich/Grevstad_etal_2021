@@ -14,11 +14,11 @@
 ## other functions not included in this manuscript
 ## ---
 
+# Script can be run through console or as shell script do_cron_APH.sh (easier)
 
-# DDRP cohorts v. 1
 
 # Load the required packages
-pkgs <- c("doParallel", "plyr", "dplyr", "foreach", "ggplot2", "ggthemes", 
+pkgs <- c("colorspace", "doParallel", "plyr", "dplyr", "foreach", "ggplot2", "ggthemes", 
           "lubridate", "mapdata", "mgsub", "optparse", "parallel",
           "purrr", "RColorBrewer", "rgdal", "raster", "readr", "sp", "stringr", 
           "tidyr", "tictoc", "tools", "viridis")
@@ -26,7 +26,7 @@ pkgs <- c("doParallel", "plyr", "dplyr", "foreach", "ggplot2", "ggthemes",
 lapply(pkgs, library, character.only = TRUE)
 
 # Load collection of functions for this model
-source("/code/DDRP_cohorts_v1_funcs.R")
+source("code/DDRP_cohorts_v1_funcs.R")
 
 # Bring in states feature for summary maps (PNG files)
 # Requires these libraries: "mapdata" and "maptools"
@@ -112,7 +112,7 @@ if (!is.na(opts[1])) {
   #### * Default values for params, if not provided in command line ####
   spp           <- "APH" # Default species to use
   forecast_data <- "DAYMET" # Forecast data to use (PRISM or NMME)
-  start_year    <- 2010 # Year to use
+  start_year    <- 2019 # Year to use
   start_doy     <- 1 # Start day of year          
   end_doy       <- 365 # End day of year - need 365 if voltinism map 
   keep_leap     <- 0 # Should leap year be kept?
@@ -123,7 +123,7 @@ if (!is.na(opts[1])) {
   mapE          <- 0 # Make maps for egg stage
   mapL          <- 0 # Make maps for larval stage
   mapP          <- 0 # Make maps for pupal stage
-  out_dir       <- "APH_NA" # Output dir
+  out_dir       <- "NorthAmerica" # Output dir
   out_option    <- 1 # Output option category
   ncohort       <- 6 # Number of cohorts to approximate end of OW stage
   odd_gen_map   <- 0 # Create summary plots for odd gens only (gen1, gen3, ..)
@@ -135,7 +135,7 @@ if (!is.na(opts[1])) {
 # (2). DIRECTORY INIT ------
 
 #### * Param inputs - species params; thresholds, weather, etc. ####
-params_dir <- "code"
+params_dir <- "code/"
 
 #### * Weather inputs and outputs - climate data w/subdirs 4-digit year ####
 if(region_param %in% c("CONUSPLUS", "WESTPLUS")) forecast_data <- "DAYMET"
@@ -149,7 +149,7 @@ if(end_doy == 366) end_doy <- 365 # ignore leap years
 
 if(forecast_data == "DAYMET"){
   # North America Daymet data
-  base_dir <- "daymet_na4k/"
+  base_dir <- "data/daymet/"
   prism_dir <- paste0(base_dir, start_year)
   raster_crs <- "+proj=longlat +datum=NAD83 +no_defs +ellps=GRS80 +towgs84=0,0,0" 
 }
@@ -161,7 +161,7 @@ if(forecast_data == "DAYMET"){
 # }
 
 if(forecast_data == "EOBS"){
-  base_dir <- "eobs/"
+  base_dir <- "data/eobs/"
   prism_dir <- paste0(base_dir, start_year)
   raster_crs <- "+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0" 
 }
@@ -174,7 +174,7 @@ cat("\nWORKING DIR: ", prism_dir, "\n")
 # MUST remove .tif files or script will crash during processing because it will 
 # try to analyze previously processed results. 
 
-output_dir <- paste0("DDRP_results/", out_dir)
+output_dir <- paste0("data/DDRP_results/", out_dir)
 
 # Remove all files if output_dir exists, or else create output_dir
 if (file.exists(output_dir)) {
@@ -206,8 +206,7 @@ cat(str_wrap(paste0("EXISTING OUTPUT DIR: ", output_dir,
     file = Model_rlogging, append = TRUE)
 
 # Push out a message file with all R error messages
-msg <- file(paste0("DDRP_results/", out_dir,
-                   "/Logs_metadata/rmessages.txt"), open = "wt")
+msg <- file("Logs_metadata/rmessages.txt", open = "wt")
 sink(msg, type = "message")
 
 # (3). PARAMETER AND SETTINGS SETUP ----- 
