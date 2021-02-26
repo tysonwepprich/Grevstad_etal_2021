@@ -15,10 +15,10 @@
   pupaeUDT   <- 30    
   adultLDT   <- 6.9   
   adultUDT   <- 30     
-  eggDD      <- 416 # Egg (147) and Nymph 1-4 (269) all combined    
-  larvaeDD   <- 132 # Nymph 5th instar
+  eggDD      <- 413 # Egg (143) and Nymph 1-4 (270) all combined    
+  larvaeDD   <- 133 # Nymph 5th instar
   pupDD      <- 70 # time to complete pre-oviposition and pre-diapause period
-  OWadultDD  <- 306   
+  OWadultDD  <- 306 # not used   
   adultDD    <- 50     # time until peak oviposition
   calctype   <-"triangle" # similar to sine method upon which model was built
  

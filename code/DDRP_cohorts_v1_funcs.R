@@ -1093,8 +1093,7 @@ PlotMap <- function(r, d, titl, lgd, outfl) {
   
   # Subtitle (same for all plots)
   subtitl <- paste("Maps and modeling",
-    format(Sys.Date(), "%m/%d/%Y"), str_wrap("by Oregon State University IPPC 
-    USPEST.ORG and USDA-APHIS-PPQ; climate data from OSU PRISM Climate Group",
+    format(Sys.Date(), "%m/%d/%Y"), str_wrap("by Oregon IPM Center",
     width = 150))
   
   # Need to enforce a rule for wrapping title and subtitle on plot
@@ -1811,8 +1810,7 @@ PlotMap_stress <- function(r, d, max1, max2, titl, lgd, outfl) {
                              format = "%m/%d/%Y"))
   titl <- paste(titl, dat, sep = " ")
   subtitl <- paste("Maps and modeling", format(Sys.Date(), "%m/%d/%Y"), 
-    str_wrap("by Oregon State University IPPC USPEST.ORG and USDA-APHIS-PPQ; 
-             climate data from OSU PRISM Climate Group",  width = 150))  
+    str_wrap("by Oregon IPM Center",  width = 150))  
   df <- ConvDF(r)
   df2 <- Stress_Val_Conv(df) # Properly formats values
   

@@ -1,5 +1,15 @@
-# Multiyear maps
-
+## Header ----
+## Script name: 05_map_DDRP_results.R
+## Purpose of script: Map results from DDRP annual lifecycle model
+## Author: Tyson Wepprich
+## Date Created: 2021-02-04
+## License: GNU GPLv3
+## Email: tyson.wepprich@gmail.com
+## ---
+## Notes:
+## Script makes maps in manuscript from Europe and North America
+## Can take multiple years of DDRP results to average (2010-2019)
+## ---
 # Load the required packages
 pkgs <- c("doParallel", "plyr", "dplyr", "foreach", "ggplot2", "ggthemes", 
           "lubridate", "mapdata", "mgsub", "optparse", "parallel",
