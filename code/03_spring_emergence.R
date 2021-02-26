@@ -95,7 +95,7 @@ plt
 # plt
 
 
-ggsave("figures/figA1.png", plot = plt, device = "png", height = 9, width = 12, units = "in")
+ggsave("figures/figS1.png", plot = plt, device = "png", height = 9, width = 12, units = "in")
 
 
 

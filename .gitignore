@@ -1,3 +1,9 @@
+# Big temperature files
+.nc
+.nc4
+.gri
+.grd
+
 # History files
 .Rhistory
 .Rapp.history

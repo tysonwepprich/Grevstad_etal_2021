@@ -10,7 +10,7 @@ This repository walks through our analysis of *Aphalara itadori* developmental t
 * 05_map_DDRP_results.R uses 2010-2019 results from DDRP and makes maps for the manuscript.
 
 Unnumbered R scripts are for utility functions and processing temperature rasters. 
-* DDRP_cohorts_v1_funcs.R are functions needed in DDRP, not all used in this manuscript
+* DDRP_cohorts_v1_funcs.R are functions for DDRP (not all used in this manuscript)
 * Process_gridded_temperatures.R shows how to convert downloaded gridded temperature data into daily rasters for DDRP. You do not have to run this, as we include 2019 as sample temperature data and intermediate results from 2010-2019 to make maps.
 * APH.params is a parameters file for our species using the DDRP format
 
