@@ -17,3 +17,5 @@ Unnumbered R scripts are for utility functions and processing temperature raster
 **In the data directory**, we include raw data and intermediate products described with a metadata file. Daily temperature rasters are too large to include in this repository, but instructions on downloading and processing temperature data are included in Process_gridded_temperatures.R. We include 2019 DDRP intermediate results from Europe as an example.
 
 **In the figures directory**, we include the output from the analysis that we include in the manuscript.
+
+[![DOI](https://zenodo.org/badge/336131981.svg)](https://zenodo.org/badge/latestdoi/336131981)
