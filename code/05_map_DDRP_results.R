@@ -178,48 +178,48 @@ MultiyearMaps <- function(region, years, maptype, biotype, filename){
 # 2017 coldest, 2018 warmest for Europe by degree-days
 # 2013 coldest, 2012 warmest for North America by degree-days
 
+# Figure 3
+MultiyearMaps(region = "CONUSPLUS", years = c(2010:2019), maptype = "FullGen", biotype = "Kyushu", filename = "fig3a_NA_mean")
+MultiyearMaps(region = "EUROPE", years = c(2010:2019), maptype = "FullGen", biotype = "Kyushu", filename = "fig3b_EURO_mean")
+
 # Figure 4
-MultiyearMaps(region = "CONUSPLUS", years = c(2010:2019), maptype = "FullGen", biotype = "Kyushu", filename = "fig4a_NA_mean")
-MultiyearMaps(region = "EUROPE", years = c(2010:2019), maptype = "FullGen", biotype = "Kyushu", filename = "fig4b_EURO_mean")
+MultiyearMaps(region = "CONUSPLUS", years = c(2010:2019), maptype = "AttVolt", biotype = "Hokkaido", filename = "fig4a_NA_mean")
+MultiyearMaps(region = "CONUSPLUS", years = c(2010:2019), maptype = "AttVolt", biotype = "Kyushu", filename = "fig4c_NA_mean")
+MultiyearMaps(region = "EUROPE", years = c(2010:2019), maptype = "AttVolt", biotype = "Hokkaido", filename = "fig4b_EURO_mean")
+MultiyearMaps(region = "EUROPE", years = c(2010:2019), maptype = "AttVolt", biotype = "Kyushu", filename = "fig4d_EURO_mean")
 
 # Figure 5
-MultiyearMaps(region = "CONUSPLUS", years = c(2010:2019), maptype = "AttVolt", biotype = "Hokkaido", filename = "fig5a_NA_mean")
-MultiyearMaps(region = "CONUSPLUS", years = c(2010:2019), maptype = "AttVolt", biotype = "Kyushu", filename = "fig5c_NA_mean")
-MultiyearMaps(region = "EUROPE", years = c(2010:2019), maptype = "AttVolt", biotype = "Hokkaido", filename = "fig5b_EURO_mean")
-MultiyearMaps(region = "EUROPE", years = c(2010:2019), maptype = "AttVolt", biotype = "Kyushu", filename = "fig5d_EURO_mean")
-
-# Figure 6
-MultiyearMaps(region = "CONUSPLUS", years = c(2010:2019), maptype = "Mismatch", biotype = "Hokkaido", filename = "fig6a_NA_mean")
-MultiyearMaps(region = "CONUSPLUS", years = c(2010:2019), maptype = "Mismatch", biotype = "Kyushu", filename = "fig6c_NA_mean")
-MultiyearMaps(region = "EUROPE", years = c(2010:2019), maptype = "Mismatch", biotype = "Hokkaido", filename = "fig6b_EURO_mean")
-MultiyearMaps(region = "EUROPE", years = c(2010:2019), maptype = "Mismatch", biotype = "Kyushu", filename = "fig6d_EURO_mean")
-
-# Figure S2
-MultiyearMaps(region = "CONUSPLUS", years = 2012, maptype = "FullGen", biotype = "Kyushu", filename = "figS2a_NA_2012_warmest")
-MultiyearMaps(region = "CONUSPLUS", years = 2013, maptype = "FullGen", biotype = "Kyushu", filename = "figS2c_NA_2013_coolest")
-MultiyearMaps(region = "EUROPE", years = 2018, maptype = "FullGen", biotype = "Kyushu", filename = "figS2b_EURO_2018_warmest")
-MultiyearMaps(region = "EUROPE", years = 2017, maptype = "FullGen", biotype = "Kyushu", filename = "figS2d_EURO_2017_coolest")
+MultiyearMaps(region = "CONUSPLUS", years = c(2010:2019), maptype = "Mismatch", biotype = "Hokkaido", filename = "fig5a_NA_mean")
+MultiyearMaps(region = "CONUSPLUS", years = c(2010:2019), maptype = "Mismatch", biotype = "Kyushu", filename = "fig5c_NA_mean")
+MultiyearMaps(region = "EUROPE", years = c(2010:2019), maptype = "Mismatch", biotype = "Hokkaido", filename = "fig5b_EURO_mean")
+MultiyearMaps(region = "EUROPE", years = c(2010:2019), maptype = "Mismatch", biotype = "Kyushu", filename = "fig5d_EURO_mean")
 
 # Figure S3
-MultiyearMaps(region = "CONUSPLUS", years = 2012, maptype = "AttVolt", biotype = "Hokkaido", filename = "figS3a_NA_2012_warmest")
-MultiyearMaps(region = "CONUSPLUS", years = 2013, maptype = "AttVolt", biotype = "Hokkaido", filename = "figS3c_NA_2013_coolest")
-MultiyearMaps(region = "EUROPE", years = 2018, maptype = "AttVolt", biotype = "Hokkaido", filename = "figS3b_EURO_2018_warmest")
-MultiyearMaps(region = "EUROPE", years = 2017, maptype = "AttVolt", biotype = "Hokkaido", filename = "figS3d_EURO_2017_coolest")
+MultiyearMaps(region = "CONUSPLUS", years = 2012, maptype = "FullGen", biotype = "Kyushu", filename = "figS3a_NA_2012_warmest")
+MultiyearMaps(region = "CONUSPLUS", years = 2013, maptype = "FullGen", biotype = "Kyushu", filename = "figS3c_NA_2013_coolest")
+MultiyearMaps(region = "EUROPE", years = 2018, maptype = "FullGen", biotype = "Kyushu", filename = "figS3b_EURO_2018_warmest")
+MultiyearMaps(region = "EUROPE", years = 2017, maptype = "FullGen", biotype = "Kyushu", filename = "figS3d_EURO_2017_coolest")
 
 # Figure S4
-MultiyearMaps(region = "CONUSPLUS", years = 2012, maptype = "AttVolt", biotype = "Kyushu", filename = "figS4a_NA_2012_warmest")
-MultiyearMaps(region = "CONUSPLUS", years = 2013, maptype = "AttVolt", biotype = "Kyushu", filename = "figS4c_NA_2013_coolest")
-MultiyearMaps(region = "EUROPE", years = 2018, maptype = "AttVolt", biotype = "Kyushu", filename = "figS4b_EURO_2018_warmest")
-MultiyearMaps(region = "EUROPE", years = 2017, maptype = "AttVolt", biotype = "Kyushu", filename = "figS4d_EURO_2017_coolest")
+MultiyearMaps(region = "CONUSPLUS", years = 2012, maptype = "AttVolt", biotype = "Hokkaido", filename = "figS4a_NA_2012_warmest")
+MultiyearMaps(region = "CONUSPLUS", years = 2013, maptype = "AttVolt", biotype = "Hokkaido", filename = "figS4c_NA_2013_coolest")
+MultiyearMaps(region = "EUROPE", years = 2018, maptype = "AttVolt", biotype = "Hokkaido", filename = "figS4b_EURO_2018_warmest")
+MultiyearMaps(region = "EUROPE", years = 2017, maptype = "AttVolt", biotype = "Hokkaido", filename = "figS4d_EURO_2017_coolest")
 
 # Figure S5
-MultiyearMaps(region = "CONUSPLUS", years = 2012, maptype = "Mismatch", biotype = "Hokkaido", filename = "figS5a_NA_2012_warmest")
-MultiyearMaps(region = "CONUSPLUS", years = 2013, maptype = "Mismatch", biotype = "Hokkaido", filename = "figS5c_NA_2013_coolest")
-MultiyearMaps(region = "EUROPE", years = 2018, maptype = "Mismatch", biotype = "Hokkaido", filename = "figS5b_EURO_2018_warmest")
-MultiyearMaps(region = "EUROPE", years = 2017, maptype = "Mismatch", biotype = "Hokkaido", filename = "figS5d_EURO_2017_coolest")
+MultiyearMaps(region = "CONUSPLUS", years = 2012, maptype = "AttVolt", biotype = "Kyushu", filename = "figS5a_NA_2012_warmest")
+MultiyearMaps(region = "CONUSPLUS", years = 2013, maptype = "AttVolt", biotype = "Kyushu", filename = "figS5c_NA_2013_coolest")
+MultiyearMaps(region = "EUROPE", years = 2018, maptype = "AttVolt", biotype = "Kyushu", filename = "figS5b_EURO_2018_warmest")
+MultiyearMaps(region = "EUROPE", years = 2017, maptype = "AttVolt", biotype = "Kyushu", filename = "figS5d_EURO_2017_coolest")
 
 # Figure S6
-MultiyearMaps(region = "CONUSPLUS", years = 2012, maptype = "Mismatch", biotype = "Kyushu", filename = "figS6a_NA_2012_warmest")
-MultiyearMaps(region = "CONUSPLUS", years = 2013, maptype = "Mismatch", biotype = "Kyushu", filename = "figS6c_NA_2013_coolest")
-MultiyearMaps(region = "EUROPE", years = 2018, maptype = "Mismatch", biotype = "Kyushu", filename = "figS6b_EURO_2018_warmest")
-MultiyearMaps(region = "EUROPE", years = 2017, maptype = "Mismatch", biotype = "Kyushu", filename = "figS6d_EURO_2017_coolest")
+MultiyearMaps(region = "CONUSPLUS", years = 2012, maptype = "Mismatch", biotype = "Hokkaido", filename = "figS6a_NA_2012_warmest")
+MultiyearMaps(region = "CONUSPLUS", years = 2013, maptype = "Mismatch", biotype = "Hokkaido", filename = "figS6c_NA_2013_coolest")
+MultiyearMaps(region = "EUROPE", years = 2018, maptype = "Mismatch", biotype = "Hokkaido", filename = "figS6b_EURO_2018_warmest")
+MultiyearMaps(region = "EUROPE", years = 2017, maptype = "Mismatch", biotype = "Hokkaido", filename = "figS6d_EURO_2017_coolest")
+
+# Figure S7
+MultiyearMaps(region = "CONUSPLUS", years = 2012, maptype = "Mismatch", biotype = "Kyushu", filename = "figS7a_NA_2012_warmest")
+MultiyearMaps(region = "CONUSPLUS", years = 2013, maptype = "Mismatch", biotype = "Kyushu", filename = "figS7c_NA_2013_coolest")
+MultiyearMaps(region = "EUROPE", years = 2018, maptype = "Mismatch", biotype = "Kyushu", filename = "figS7b_EURO_2018_warmest")
+MultiyearMaps(region = "EUROPE", years = 2017, maptype = "Mismatch", biotype = "Kyushu", filename = "figS7d_EURO_2017_coolest")

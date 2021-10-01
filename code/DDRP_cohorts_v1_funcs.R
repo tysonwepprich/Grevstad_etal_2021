@@ -367,7 +367,7 @@ DailyLoop <- function(cohort, tile_num, template) {
     ls_dd <- stage_dd_cohort[Lifestage]
     
     # Calculate stage-specific degree-days for each cell per day
-    dd_tmp <- TriDD(tmax, tmin, ls_ldt, ls_udt)
+    dd_tmp <- TriDDvert(tmax, tmin, ls_ldt, ls_udt)
     
     # Accumulate degree days
     DDaccum <- DDaccum + dd_tmp
@@ -376,7 +376,7 @@ DailyLoop <- function(cohort, tile_num, template) {
     # Can not use DDaccum because this one has values reset when progress = 1
     ls_ldt_larv <- stage_ldt[which(stgorder == "L")]
     ls_udt_larv <- stage_udt[which(stgorder == "L")]
-    dd_tmp_larv <- TriDD(tmax, tmin, ls_ldt_larv, ls_udt_larv)
+    dd_tmp_larv <- TriDDvert(tmax, tmin, ls_ldt_larv, ls_udt_larv)
     DDtotal <- DDtotal + dd_tmp_larv
     
     # Climate stress exclusions - results will be same for all cohorts, 
@@ -985,6 +985,23 @@ TriDD <- function(tmax, tmin, LDT, UDT) {
                       Cond((tmin > LDT) & (tmax >= UDT), 
                            6*(tmax + tmin - 2*LDT)/12 - (Tmp2/12),
                            Cond((tmin > LDT) & (tmax < UDT), 
+                                6*(tmax + tmin - 2*LDT)/12,0))))))
+} 
+
+# Single triangle with upper threshold, vertical cutoff 
+# also a good substitution for the single sine method
+TriDDvert <- function(tmax, tmin, LDT, UDT) {
+  tmax <- Cond(tmax == tmin, tmax + 0.01, tmax)
+  Tmp1 = 6*((tmax - LDT)*(tmax - LDT))/(tmax - tmin)
+  Tmp2 = 6*((tmax - UDT)*(tmax - UDT))/(tmax - tmin)
+  Cutoff = (tmax - UDT)*(UDT-LDT)/(tmax - tmin)
+  Cond(tmax < LDT, 0,
+       Cond(tmin >= UDT, 0, # no development due to vert cutoff
+            Cond((tmax < UDT) & (tmin <= LDT), Tmp1/12, # no vert cutoff
+                 Cond((tmin <= LDT) & (tmax >= UDT), (Tmp1 - Tmp2)/12 - Cutoff,
+                      Cond((tmin > LDT) & (tmax >= UDT), 
+                           6*(tmax + tmin - 2*LDT)/12 - (Tmp2/12) - Cutoff,
+                           Cond((tmin > LDT) & (tmax < UDT), # no vert cutoff
                                 6*(tmax + tmin - 2*LDT)/12,0))))))
 } 
 

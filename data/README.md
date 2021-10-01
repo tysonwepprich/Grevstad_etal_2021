@@ -1,10 +1,9 @@
 # Metadata
-Temperature data and DDRP results are large files that will be included in the final Zenodo archive, but are not uploaded currently in the repository.
 
 **Directories**
 * *daymet*: Not included, daily temperature min/max rasters for North America. Instructions on how to process these from downloaded netcdf's are in Process_gridded_temperature.R
-* *eobs*: Not included, daily temperature min/max rasters for Europe. Instructions on how to process these from downloaded netcdf's are in Process_gridded_temperature.R
-* *DDRP_results*: Not included, Intermediate results (.tif) from DDRP for 2010-2019 that are used to make maps in the manuscript in 05_map_DDRP_results.R. These results come from analysis performed in 04_DDRP_phenology model.R.
+* *eobs*: 2019 included, daily temperature min/max rasters for Europe. Instructions on how to process these from downloaded netcdf's are in Process_gridded_temperature.R
+* *DDRP_results*: 2019 example from Europe included to show annual results (.tif) from DDRP. Analysis for 2010-2019 were used to make maps in the manuscript in 05_map_DDRP_results.R. These results come from analysis performed in 04_DDRP_phenology model.R.
 
 **Experimental data**
 * *dev_exp1.csv*: Development time at constant temperatures

@@ -1,0 +1,51 @@
+### Metadata for DDRP cohorts v1 ###
+
+### Model Species Parameters ###
+ Species Abbrev: APH 
+ Full Name: Aphalara itadori 
+ Pest of: biological control of Japanese and Giant knotweed 
+ Overwintering Stage: OA
+ 
+ Developmental threshold temperatures 
+ Egg Lower Devel Threshold: 6.9 
+ Egg Upper Devel Threshold: 30 
+ Larvae Lower Devel Threshold: 6.9 
+ Larvae Upper Devel Threshold: 30 
+ Pupae Lower Devel Threshold: 6.9 
+ Pupae Upper Devel Threshold: 30 
+ Adult Lower Devel Threshold: 6.9 
+ Adult Upper Devel Threshold: 30
+
+ Stage durations in degree-days (DDs) 
+ Egg DDs: 413 
+ Larvae DDs 133 
+ Pupae DDs: 70 
+ Adult DDs: 50 
+ 
+
+### Model Input Parameters ###
+ Start Year: 2019 
+ Weather data for forecasts: EOBS 
+ Start day-of-year: 1 
+ End day-of-year: 365 
+ Region: EUROPE 
+ Climate stress exclusion maps: 0 
+ Pest Event Maps: 0 
+ Output_Dir: example_EURO_HOKKAIDO 
+ Output option: 1 
+ No. of cohorts: 6 
+ Mean of end of OW stage (DDs): 220 
+ Low bound of end of OW stage (DDs), xdist: 150 
+ High bound of end of OW stage (DDs), ydist: 290 
+ Variance in end of OW stage (DDs): 2500 
+ Shape of distribution of end of OW stage (DDs): normal 
+ Plot odd gens only: 0
+
+###Durations (in degree-days) of stages in each of 6 cohorts ###
+"cohort" "OA" "E" "L" "P" "A"
+1 163 413 133 70 50
+2 186 413 133 70 50
+3 209 413 133 70 50
+4 231 413 133 70 50
+5 254 413 133 70 50
+6 277 413 133 70 50

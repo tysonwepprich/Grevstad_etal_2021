@@ -11,9 +11,9 @@ This repository walks through our analysis of *Aphalara itadori* developmental t
 
 Unnumbered R scripts are for utility functions and processing temperature rasters. 
 * DDRP_cohorts_v1_funcs.R are functions for DDRP (not all used in this manuscript)
-* Process_gridded_temperatures.R shows how to convert downloaded gridded temperature data into daily rasters for DDRP. You do not have to run this, as we include 2019 as sample temperature data and intermediate results from 2010-2019 to make maps.
+* Process_gridded_temperatures.R shows how to convert downloaded gridded temperature data into daily rasters for DDRP. You do not have to run this, as we include 2019 as sample temperature data.
 * APH.params is a parameters file for our species using the DDRP format
 
-**In the data directory**, we include raw data and intermediate products described with a metadata file. Daily temperature rasters are too large to include in this repository, but will be included in the final Zenodo archive. 
+**In the data directory**, we include raw data and intermediate products described with a metadata file. Daily temperature rasters are too large to include all data in this repository, but instructions on downloading and processing temperature data are included in Process_gridded_temperatures.R. We include 2019 data from Europe as an example.
 
 **In the figures directory**, we include the output from the analysis that we include in the manuscript.

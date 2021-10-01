@@ -61,5 +61,5 @@ plt <- ggplot(data = dat, aes(x = Treat, y = perc_repro, group = Pop)) +
         legend.position = c(.85, .15))
 plt
 
-ggsave("figures/fig3.png", dpi = 600,
+ggsave("figures/fig2.png", dpi = 600,
        plot = plt, device = "png", width = 6, height = 5.5, units = "in")

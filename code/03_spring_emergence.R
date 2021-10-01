@@ -78,7 +78,7 @@ theme_set(theme_bw(base_size = 16))
 plt <- ggplot(dat, aes(x = AccumDD, y = OvipRateDD, group = Photoperiod, color = Photoperiod)) +
   geom_point(size = 1, alpha = .9) +
   geom_path(size = 2, alpha = .5) +
-  scale_color_viridis() +
+  scale_color_viridis(breaks = c(10, 11.2, 12.4, 13.6, 14.8, 16)) +
   facet_wrap(Population~Temperature, scales = "free_y") +
   xlab("Accumulated degree-days") +
   ylab("Oviposition rate per degree-day per adult") +
@@ -95,8 +95,117 @@ plt
 # plt
 
 
-ggsave("figures/figS1.png", plot = plt, device = "png", height = 9, width = 12, units = "in")
+ggsave("../figures/figS2.png", plot = plt, device = "png", height = 9, width = 12, units = "in")
 
+
+
+
+
+library(mgcv)
+
+dat$Population <- as.factor(dat$Population)
+dat$Temperature <- as.factor(as.character(dat$Temperature))
+dat$TrtFactor <- as.factor(paste(dat$Population, dat$Temperature, sep = "_"))
+gammod <- gam(OvipRateDD ~ 
+                Population + Temperature +
+                s(AccumDD, Photoperiod, by = Population) +
+                s(AccumDD, by = Temperature),
+              data = dat,
+              family = poisson(link = "log"))
+
+gammod <- gam(NewEggs ~ 
+                s(AccumDD, by = Population) +
+                s(Photoperiod, k = 4, by = Population) +
+                Population + Temperature,
+              data = dat, offset = RateOffset,
+              family = poisson(link = "log"))
+
+# poisson way worse than negbin
+# compare with LRT, test overdispersion
+gammod1 <- gam(NewEggs ~ 
+                 s(NumAdults) +
+                 te(AccumDD, Photoperiod, k = c(5, 4), by = TrtFactor) +
+                 TrtFactor,
+               data = dat, offset = RateOffset,
+               family = poisson(link = "log"))
+sum(residuals(gammod1, type = "pearson")^2) / df.residual(gammod1)
+
+# including density effects on rate
+gammod2 <- gam(NewEggs ~ 
+                 s(NumAdults) +
+                 te(AccumDD, Photoperiod, k = c(5, 4), by = TrtFactor) +
+                 TrtFactor,
+               data = dat, offset = RateOffset,
+               family = nb(link = "log"))
+sum(residuals(gammod2, type = "pearson")^2) / df.residual(gammod2)
+
+d <- 2 * (logLik(gammod2) - logLik(gammod1))
+pval <- 0.5 * pchisq(as.numeric(d), df = 1, lower.tail = FALSE)
+
+
+# what about spelling out interactions so can be removed for predictions?
+gammod3 <- gam(NewEggs ~ 
+                 s(NumAdults) +
+                 ti(AccumDD, by = Temperature) +
+                 ti(Photoperiod, by = Population) +
+                 ti(AccumDD, Photoperiod, by = TrtFactor) +
+                 Population + Temperature + TrtFactor,
+               data = dat, offset = RateOffset,
+               family = nb(link = "log"))
+
+
+# for mapping, just try southern strain, no difference in temperature
+dat <- dat %>% filter(Population == "S")
+gammod1 <- gam(NewEggs ~ 
+                 s(NumAdults) +
+                 te(AccumDD, Photoperiod, k = c(5, 4)),
+               data = dat, offset = RateOffset,
+               family = nb(link = "log"))
+gammod2 <- gam(NewEggs ~ 
+                 s(NumAdults) +
+                 te(AccumDD, Photoperiod, k = c(5, 4)),
+               data = dat, offset = RateOffset,
+               family = poisson(link = "log"))
+
+newdat <- expand.grid(AccumDD = seq(0, 300, length.out = 150),
+                      Photoperiod = seq(10, 16, length.out = 6),
+                      TrtFactor = unique(dat$TrtFactor),
+                      RateOffset = log(1),
+                      NumAdults = 25)
+newdat <- newdat[-which(newdat$AccumDD > 250 & newdat$TrtFactor %in% c("N_14", "S_14")), ]
+newdat$Population <- stringr::str_split_fixed(newdat$TrtFactor, pattern = "_", n = 2)[, 1]
+newdat$Temperature <- stringr::str_split_fixed(newdat$TrtFactor, pattern = "_", n = 2)[, 2]
+
+newdat$pred <- predict(gammod1, newdata = newdat, type = "response")
+
+
+preds <- ggplot(newdat, aes(x = AccumDD, y = pred, group = Photoperiod, color = Photoperiod)) +
+  geom_line(size = 2) +
+  scale_color_viridis(breaks = seq(10, 16, length.out = 6)) +
+  facet_wrap(Population~Temperature, scales = "free_y") +
+  ggtitle("Modeled oviposition rate (eggs/degree-day/adult)") +
+  ylab("Predicted oviposition rate") +
+  xlab("Accumulated degree-days (7C base)")
+# theme(legend.position = c(.2, .7), legend.direction = "vertical", plot.title = element_text(hjust = 0.5))
+
+preds
+
+plt <- ggplot(dat, aes(x = AccumDD, y = OvipRateDD, group = Photoperiod, color = Photoperiod)) +
+  geom_point(size = 4, alpha = .7) +
+  scale_color_viridis(breaks = seq(10, 16, length.out = 3)) +
+  facet_wrap(Population~Temperature, scales = "free_y") +
+  xlab("Accumulated degree-days (7C base)") +
+  ylab("Observed oviposition rate") +
+  ggtitle("Oviposition rate (eggs/degree-day/adult)")
+# theme(legend.position = c(.2, .7), legend.direction = "vertical", plot.title = element_text(hjust = 0.5))
+
+plt
+
+
+
+write.csv(dat, file = "APHA_GC_ovip.csv", row.names = FALSE)
+ggsave("APHA_ovip_rate_south.png", plot = plt, device = "png", height = 9, width = 12, units = "in")
+ggsave("APHA_ovip_model_south.png", plot = preds, device = "png", height = 9, width = 12, units = "in")
 
 
 

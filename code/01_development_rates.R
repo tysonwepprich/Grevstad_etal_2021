@@ -144,4 +144,4 @@ fig2 <- meanplt +
   theme(legend.position = c(.23, .85))
 # ggtitle("Aphalara daily development rate vs constant temperatures")
 fig2
-ggsave(filename = "figures/fig2.png", plot = fig2, device = "png", width = 8, height = 7)
+ggsave(filename = "figures/figS1.png", plot = fig2, device = "png", width = 8, height = 7)

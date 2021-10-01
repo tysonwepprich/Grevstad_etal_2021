@@ -1,0 +1,9 @@
+Warning message:
+In showSRID(uprojargs, format = "PROJ", multiline = "NO") :
+  Discarded datum WGS_1984 in CRS definition,
+ but +towgs84= values preserved
+Warning messages:
+1: In file.remove(misc_fls) :
+  cannot remove file 'Logs_metadata', reason 'Permission denied'
+2: In file.remove(misc_fls) :
+  cannot remove file 'Misc_output', reason 'Permission denied'

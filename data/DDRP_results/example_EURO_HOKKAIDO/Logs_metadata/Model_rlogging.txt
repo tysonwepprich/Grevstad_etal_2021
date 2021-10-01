@@ -1,0 +1,117 @@
+####################################
+### Log file for DDRP cohorts v1 ###
+####################################
+
+BASE DIR:  C:/Users/tmwepprich/Desktop/repo/Grevstad_etal_2021/data/eobs/ 
+WORKING DIR:  C:/Users/tmwepprich/Desktop/repo/Grevstad_etal_2021/data/eobs/2019 
+EXISTING OUTPUT DIR: C:/Users/tmwepprich/Desktop/repo/Grevstad_etal_2021/data/
+DDRP_results/example_EURO_HOKKAIDO; removing all files
+
+PARAMETER AND SETTINGS SETUP: getting parameters to use in model
+Species params:  C:/Users/tmwepprich/Desktop/repo/Grevstad_etal_2021/code/APH.params 
+Reading params for species:  APH  Fullname:  Aphalara itadori 
+
+METADATA: creating metadata file for all inputs used in model
+
+Done writing metafile
+
+EOBS DATA PROCESSING
+Finished loading EOBS files for 365 days
+Creating template file for EUROPE
+Cropping tmax and tmin tiles for EUROPE 
+Done processing EOBS data
+
+DAILY LOOP
+Sampling every 30 days between 20190101 and 20191231 
+Running daily loop for cohorts 1 2 3 
+Running daily loop for cohorts 4 5 6 
+Daily loop done (run time = 3.03 min)
+
+FINAL ANALYSES AND MAP PRODUCTION
+
+### SUMMARY MAPS: DDTOTAL ###
+
+Saving summary map: Misc_output/DDtotal_20191231.png
+- Number of accumulated degree-days on 12/31/2019
+
+Saving summary map: Misc_output/DDtotal_20190927.png
+- Number of accumulated degree-days on 09/27/2019
+
+Saving summary map: Misc_output/DDtotal_20190130.png
+- Number of accumulated degree-days on 01/30/2019
+
+Saving summary map: Misc_output/DDtotal_20190530.png
+- Number of accumulated degree-days on 05/30/2019
+
+Saving summary map: Misc_output/DDtotal_20191027.png
+- Number of accumulated degree-days on 10/27/2019
+
+Saving summary map: Misc_output/DDtotal_20190301.png
+- Number of accumulated degree-days on 03/01/2019
+
+Saving summary map: Misc_output/DDtotal_20190629.png
+- Number of accumulated degree-days on 06/29/2019
+
+Saving summary map: Misc_output/DDtotal_20191126.png
+- Number of accumulated degree-days on 11/26/2019
+
+Saving summary map: Misc_output/DDtotal_20190331.png
+- Number of accumulated degree-days on 03/31/2019
+
+Saving summary map: Misc_output/DDtotal_20190729.png
+- Number of accumulated degree-days on 07/29/2019
+
+Saving summary map: Misc_output/DDtotal_20191226.png
+- Number of accumulated degree-days on 12/26/2019
+
+Saving summary map: Misc_output/DDtotal_20190430.png
+- Number of accumulated degree-days on 04/30/2019
+
+Saving summary map: Misc_output/DDtotal_20190828.png
+- Number of accumulated degree-days on 08/28/2019
+
+Done with DDtotal maps
+
+### SUMMARY MAPS AND WEIGHTED RASTER OUTPUT: LIFESTAGE ###
+
+Stages: OA, E, L, P, A
+
+Saving raster brick: Mismatch_cohort6.tif
+Mismatch
+
+Saving raster brick: Mismatch_cohort2.tif
+Mismatch
+
+Saving raster brick: Mismatch_cohort3.tif
+Mismatch
+
+Saving raster brick: Mismatch_cohort5.tif
+Mismatch
+
+Saving raster brick: Mismatch_cohort1.tif
+Mismatch
+
+Saving raster brick: Mismatch_cohort4.tif
+Mismatch
+
+Saving raster brick: Diapause_all_weighted.tif
+
+
+Saving raster brick: Mismatch_all_weighted.tif
+
+
+Saving raster brick: AttVolt_all_weighted.tif
+
+
+Saving raster brick: FullGen_all_weighted.tif
+
+### SUMMARY MAP OUTPUT - Diapause ###
+
+
+### Done w/ final analyses and map production ###
+Run time for analyses and map production = 1.39 min
+Deleting, renaming, and moving some remaining files
+Renamed all files for last day (20191231) to include APH in file name
+
+MODEL RUN DONE
+Run time for entire model = 5.39 min
