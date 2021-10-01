@@ -14,6 +14,6 @@ Unnumbered R scripts are for utility functions and processing temperature raster
 * Process_gridded_temperatures.R shows how to convert downloaded gridded temperature data into daily rasters for DDRP. You do not have to run this, as we include 2019 as sample temperature data.
 * APH.params is a parameters file for our species using the DDRP format
 
-**In the data directory**, we include raw data and intermediate products described with a metadata file. Daily temperature rasters are too large to include all data in this repository, but instructions on downloading and processing temperature data are included in Process_gridded_temperatures.R. We include 2019 data from Europe as an example.
+**In the data directory**, we include raw data and intermediate products described with a metadata file. Daily temperature rasters are too large to include in this repository, but instructions on downloading and processing temperature data are included in Process_gridded_temperatures.R. We include 2019 DDRP intermediate results from Europe as an example.
 
 **In the figures directory**, we include the output from the analysis that we include in the manuscript.
